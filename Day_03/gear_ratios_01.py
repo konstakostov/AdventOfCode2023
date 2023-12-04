@@ -17,7 +17,6 @@ with open('gear_ratios_input.txt', 'r') as file:
 
 # Determining the length of the matrix, by getting the length of the first row
 SIZE = len(engine[0])
-# print(engine)
 
 # Bool to store if a digit is part of the last found number
 valid_number = False

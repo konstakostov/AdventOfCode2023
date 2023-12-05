@@ -69,8 +69,12 @@ with open('fertilizer_input.txt', "r") as almanac:
                 # The index is increased by 1
                 index += 1
 
+            # Resetting 'current_map' list
             current_map = []
+
+            # Resetting 'index' variable
             index = 0
+
             continue
 
         if not page[0].isnumeric():

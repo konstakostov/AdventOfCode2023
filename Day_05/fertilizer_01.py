@@ -77,9 +77,13 @@ with open('fertilizer_input.txt', "r") as almanac:
 
             continue
 
+        # If the first element of the current page is not number
+        # this signifies the start of a new map
         if not page[0].isnumeric():
             continue
 
+        # If the current page is with numbers (data)
+        # The data is added to the 'current_map' list
         current_map.append(page)
 
     # Iterating through the final available data from the current map
@@ -122,6 +126,12 @@ with open('fertilizer_input.txt', "r") as almanac:
 
         # The index is increased by 1
         index += 1
+
+    # Resetting 'current_map' list
+    current_map = []
+
+    # Resetting 'index' variable
+    index = 0
 
 
 # Iterating through every seed and taking every

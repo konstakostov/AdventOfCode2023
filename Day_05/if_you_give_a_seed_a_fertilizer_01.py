@@ -7,7 +7,7 @@ current_map = []
 index = 0
 
 # Opening file containing all maps in the almanac
-with open('fertilizer_input.txt', "r") as almanac:
+with open('if_you_give_a_seed_a_fertilizer.txt', "r") as almanac:
     # Getting all the seeds from the first row
     seeds = almanac.readline().strip().split()
 

@@ -84,7 +84,7 @@ with open('camel_cards_input.txt', 'r') as hands_list:
             current_hand[card] += 1
 
         # Finding the current hand type based on its length
-        # and hwo many a card type repeats in the same hands
+        # and how many a card type repeats in the same hands
         hand_type = find_type_of_hand(len(current_hand), current_hand)
 
         # Adding the current card to the correct hand type it belongs to

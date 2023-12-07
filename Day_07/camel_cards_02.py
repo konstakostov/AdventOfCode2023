@@ -32,23 +32,37 @@ HANDS = {
 # Every hand length is 5 characters
 def find_type_of_hand(current_hand_data):
     type_of_hand = ''
+
+    # Counting the number if jokers in the hand
+    # If there are no jokers it returns None
     jokers = current_hand_data.get('J', None)
 
+    # Getting the most common hand in the current cand
     max_value_card = max(current_hand_data, key=current_hand_data.get)
 
+    # Checking if there are jokers
     if jokers and max_value_card != 'J':
+        # If there are jokers and the most common card is not joker,
+        # the most common card gets the joker cards and the joker card is removed
         current_hand_data[max_value_card] += current_hand_data['J']
         del current_hand_data['J']
 
     elif jokers and max_value_card == 'J':
+        # If there are jokers and the most common card is the joker,
+        # the joker card is removed
         del current_hand_data['J']
 
+        # If there are more cards that means there were five joker card,
+        # so their added again to the hand.
         if not current_hand_data:
             current_hand_data['J'] = 5
         else:
+            # If there are other cards left the most common hand in the deck is found again,
+            # and the number of joker cards are added to it
             max_value_card = max(current_hand_data, key=current_hand_data.get)
             current_hand_data[max_value_card] += jokers
 
+    # Getting the current length
     hand_length = len(current_hand_data)
 
     # One type of cards in the hand
@@ -102,11 +116,11 @@ with open('camel_cards_input.txt', 'r') as hands_list:
 
             current_hand[card] += 1
 
-        # Finding the current hand type based on its length
-        # and hwo many a card type repeats in the same hands
+        # Finding the current hand type based on how many times
+        # a card type repeats in the same hands
+        # The length of the hand is needed too,
+        # but it is calculated in the function
         hand_type = find_type_of_hand(current_hand)
-
-        print(f"{current_hand}:     {hand_type}")
 
         # Adding the current card to the correct hand type it belongs to
         # as tuple with its bid
